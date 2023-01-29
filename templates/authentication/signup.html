@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+</head>
+<body>
+    <h1>this is signup page</h1>
+    {% for message in messages  %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+
+    <form action="/signup" method="post">
+        {% csrf_token %}
+        <label for="">Username</label><br>
+        <input type="text" name="username" id="username" placeholder="Create a username" required>
+        <br>
+
+        <label for="">First Name</label><br>
+        <input type="text" name="fname" id="fname" placeholder="Enter your first name" required>
+        <br>
+
+        <label for="">Last Name</label><br>
+        <input type="text" name="lname" id="lname" placeholder="Enter your last name" required>
+        <br>
+
+        <label for="">Email</label><br>
+        <input type="email" name="email" id="email" placeholder="Enter your Email" required>
+        <br>
+
+        <label for="">Password</label><br>
+        <input type="password" name="password" id="password" placeholder="Create a Strong Password" required>
+        <br>
+
+        <label for="">Confirm Password</label><br>
+        <input type="password" name="cpassword" id="cpassword" placeholder="Re-enter your Password" required>
+        <br>
+
+        <button type="submit">SignUp</button>
+
+    </form>
+    
+</body>
+</html>
